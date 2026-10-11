@@ -40,15 +40,15 @@ styleConstants:
   - FontFamily_himt = Segoe Fluent Icons
   - FontSize_him = 16
   - '====================================================================='
-  - taskbandInactiveNormal=#222222
+  - buttonInactiveNormal=#222222
   - barLabelPointerOver=#8A8A8A
-  - taskbandPointerOver=#373737
-  - taskbandBorderPointerOver=#434343
-  - taskbandActive=<SolidColorBrush Color="#295576"/>
+  - buttonPointerOver=#373737
+  - buttonBorderPointerOver=#434343
+  - buttonActive=<SolidColorBrush Color="#295576"/>
   - indicatorActive=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.7" />
   - indicatorInactive=<SolidColorBrush Color="Gray" Opacity="0.7" />
   - indicatorPointerOver=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.8" />
-  - taskbandAttention=<SolidColorBrush Color="#ce640c" Opacity="0.5" />
+  - buttonAttention=<SolidColorBrush Color="#ce640c" Opacity="0.5" />
   - indicatorAttention=<SolidColorBrush Color="#ce640c" Opacity="0.9" />
   - selectionBorder=<LinearGradientBrush StartPoint='0,0' EndPoint='1,0'><GradientStop Color='Transparent' Offset='0.0' /><GradientStop Color='Transparent' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.8' /><GradientStop Color='Transparent' Offset='0.8' /><GradientStop Color='Transparent' Offset='1.0' /></LinearGradientBrush>
   - selectionBorderExtended=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" />
@@ -81,25 +81,25 @@ controlStyles:
     styles:
       - CornerRadius=0
       - BorderBrush=#363636
-      - Background@ActiveNormal:=$taskbandActive
+      - Background@ActiveNormal:=$buttonActive
       - BorderBrush@ActiveNormal=#476E8B
-      - Background@InactiveNormal:=$taskbandInactiveNormal
-      - Background@ActivePointerOver:=$taskbandPointerOver
-      - BorderBrush@ActivePointerOver=$taskbandBorderPointerOver
-      - Background@MultiWindowNormal:=$taskbandInactiveNormal
-      - Background@MultiWindowPointerOver:=$taskbandPointerOver
-      - Background@InactivePointerOver:=$taskbandPointerOver
-      - BorderBrush@InactivePointerOver=$taskbandBorderPointerOver
-      - Background@ActivePressed:=$taskbandPointerOver
-      - Background@InactivePressed:=$taskbandPointerOver
-      - Background@MultiWindowPressed:=$taskbandPointerOver
-      - Background@MultiWindowActive:=$taskbandActive
-      - Background@RequestingAttention:=$taskbandAttention
-      - Background@RequestingAttentionPointerOver:=$taskbandPointerOver
-      - Background@RequestingAttentionPressed:=$taskbandPointerOver
-      - Background@RequestingAttentionMulti:=$taskbandAttention
-      - Background@RequestingAttentionMultiPointerOver:=$taskbandPointerOver
-      - Background@RequestingAttentionMultiPressed:=$taskbandPointerOver
+      - Background@InactiveNormal:=$buttonInactiveNormal
+      - Background@ActivePointerOver:=$buttonPointerOver
+      - BorderBrush@ActivePointerOver=$buttonBorderPointerOver
+      - Background@MultiWindowNormal:=$buttonInactiveNormal
+      - Background@MultiWindowPointerOver:=$buttonPointerOver
+      - Background@InactivePointerOver:=$buttonPointerOver
+      - BorderBrush@InactivePointerOver=$buttonBorderPointerOver
+      - Background@ActivePressed:=$buttonPointerOver
+      - Background@InactivePressed:=$buttonPointerOver
+      - Background@MultiWindowPressed:=$buttonPointerOver
+      - Background@MultiWindowActive:=$buttonActive
+      - Background@RequestingAttention:=$buttonAttention
+      - Background@RequestingAttentionPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionPressed:=$buttonPointerOver
+      - Background@RequestingAttentionMulti:=$buttonAttention
+      - Background@RequestingAttentionMultiPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionMultiPressed:=$buttonPointerOver
   - target: Taskbar.TaskListButton > Grid@CommonStates > Border
     styles:
       - BorderThickness = $BorderThickness_tlb
