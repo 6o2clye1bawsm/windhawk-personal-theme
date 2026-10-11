@@ -1,185 +1,126 @@
-{
-  "theme": "",
-  "styleConstants[0]": "taskbandInactiveNormal=#222222",
-  "styleConstants[1]": "barLabelPointerOver=#8A8A8A",
-  "styleConstants[2]": "taskbandPointerOver=#373737",
-  "styleConstants[3]": "taskbandBorderPointerOver=#434343",
-  "styleConstants[4]": "taskbandActive=<SolidColorBrush Color=\"#295576\"/>",
-  "styleConstants[5]": "indicatorActive=<SolidColorBrush Color=\"{ThemeResource SystemAccentColorLight2}\" Opacity=\"0.7\" />",
-  "styleConstants[6]": "indicatorInactive=<SolidColorBrush Color=\"Gray\" Opacity=\"0.7\" />",
-  "styleConstants[7]": "indicatorPointerOver=<SolidColorBrush Color=\"{ThemeResource SystemAccentColorLight2}\" Opacity=\"0.8\" />",
-  "styleConstants[8]": "taskbandAttention=<SolidColorBrush Color=\"#ce640c\" Opacity=\"0.5\" />",
-  "styleConstants[9]": "indicatorAttention=<SolidColorBrush Color=\"#ce640c\" Opacity=\"0.9\" />",
-  "styleConstants[10]": "selectionBorder=<LinearGradientBrush StartPoint='0,0' EndPoint='1,0'><GradientStop Color='Transparent' Offset='0.0' /><GradientStop Color='Transparent' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.8' /><GradientStop Color='Transparent' Offset='0.8' /><GradientStop Color='Transparent' Offset='1.0' /></LinearGradientBrush>",
-  "styleConstants[11]": "selectionBorderExtended=<SolidColorBrush Color=\"{ThemeResource SystemAccentColorLight2}\" />",
-  "styleConstants[12]": "desktopButton=https://raw.githubusercontent.com/ramensoftware/windows-11-taskbar-styling-guide/refs/heads/main/Themes/Plasma/ThemeResources/desktop.png",
-  "styleConstants[13]": "WindhawkBlur=#222222",
-  "styleConstants[14]": "Acrylic=<AcrylicBrush TintColor=\"#2a2e32\" TintOpacity=\"0.8\" FallbackColor=\"#2a2e32\" />",
-  "controlStyles[0].target": "Taskbar.TaskbarFrame",
-  "controlStyles[0].styles[0]": "Height=15",
-  "controlStyles[1].target": "Taskbar.TaskbarFrame > Grid#RootGrid > Taskbar.TaskbarBackground > Grid > Rectangle#BackgroundFill",
-  "controlStyles[1].styles[0]": "Fill:=#1e2020",
-  "controlStyles[2].target": "Rectangle#BackgroundStroke",
-  "controlStyles[2].styles[0]": "Visibility=Collapsed",
-  "controlStyles[3].target": "Microsoft.UI.Xaml.Controls.ItemsRepeater#TaskbarFrameRepeater",
-  "controlStyles[3].styles[0]": "Margin=2,0,-50,0",
-  "controlStyles[4].target": "Taskbar.ExperienceToggleButton",
-  "controlStyles[4].styles[0]": "Width=40",
-  "controlStyles[5].target": "Taskbar.TaskListButtonPanel#ExperienceToggleButtonRootPanel",
-  "controlStyles[5].styles[0]": "Width=40",
-  "controlStyles[5].styles[1]": "Padding=0",
-  "controlStyles[6].target": "Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=StartButton] > Taskbar.TaskListButtonPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer#Icon",
-  "controlStyles[6].styles[0]": "Visibility=Collapsed",
-  "controlStyles[7].target": "Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=StartButton] > Taskbar.TaskListButtonPanel > Border#BackgroundElement",
-  "controlStyles[7].styles[0]": "CornerRadius=0",
-  "controlStyles[7].styles[1]": "Height=3",
-  "controlStyles[7].styles[2]": "Width=35",
-  "controlStyles[7].styles[3]": "Margin=0,0,1,0",
-  "controlStyles[7].styles[4]": "Background=#CCCCCC",
-  "controlStyles[8].target": "Taskbar.TaskListButton",
-  "controlStyles[8].styles[0]": "Margin=0,0,0,0",
-  "controlStyles[9].target": "Taskbar.TaskListLabeledButtonPanel",
-  "controlStyles[9].styles[0]": "Padding=0",
-  "controlStyles[9].styles[1]": "Width=2000",
-  "controlStyles[10].target": "Taskbar.TaskListLabeledButtonPanel@CommonStates > Windows.UI.Xaml.Controls.Border#BackgroundElement",
-  "controlStyles[10].styles[0]": "CornerRadius=0",
-  "controlStyles[10].styles[1]": "BorderThickness=1,2,1,1",
-  "controlStyles[10].styles[2]": "BorderBrush=#2E2E2E",
-  "controlStyles[10].styles[3]": "Background@ActiveNormal:=$taskbandActive",
-  "controlStyles[10].styles[4]": "BorderBrush@ActiveNormal=#476E8B",
-  "controlStyles[10].styles[5]": "BorderThickness@ActiveNormal=1,2,1,1",
-  "controlStyles[10].styles[6]": "Background@InactiveNormal:=$taskbandInactiveNormal",
-  "controlStyles[10].styles[7]": "Background@ActivePointerOver:=$taskbandPointerOver",
-  "controlStyles[10].styles[8]": "BorderBrush@ActivePointerOver=$taskbandBorderPointerOver",
-  "controlStyles[10].styles[9]": "Background@MultiWindowNormal:=$taskbandInactiveNormal",
-  "controlStyles[10].styles[10]": "Background@MultiWindowPointerOver:=$taskbandPointerOver",
-  "controlStyles[10].styles[11]": "Background@InactivePointerOver:=$taskbandPointerOver",
-  "controlStyles[10].styles[12]": "BorderBrush@InactivePointerOver=$taskbandBorderPointerOver",
-  "controlStyles[10].styles[13]": "Background@ActivePressed:=$taskbandPointerOver",
-  "controlStyles[10].styles[14]": "Background@InactivePressed:=$taskbandPointerOver",
-  "controlStyles[10].styles[15]": "Background@MultiWindowPressed:=$taskbandPointerOver",
-  "controlStyles[10].styles[16]": "Background@MultiWindowActive:=$taskbandActive",
-  "controlStyles[10].styles[17]": "Background@RequestingAttention:=$taskbandAttention",
-  "controlStyles[10].styles[18]": "Background@RequestingAttentionPointerOver:=$taskbandPointerOver",
-  "controlStyles[10].styles[19]": "Background@RequestingAttentionPressed:=$taskbandPointerOver",
-  "controlStyles[10].styles[20]": "Background@RequestingAttentionMulti:=$taskbandAttention",
-  "controlStyles[10].styles[21]": "Background@RequestingAttentionMultiPointerOver:=$taskbandPointerOver",
-  "controlStyles[10].styles[22]": "Background@RequestingAttentionMultiPressed:=$taskbandPointerOver",
-  "controlStyles[11].target": "Windows.UI.Xaml.Shapes.Rectangle#RunningIndicator",
-  "controlStyles[11].styles[0]": "Opacity=0",
-  "controlStyles[11].styles[1]": "Visibility=Collapsed",
-  "controlStyles[12].target": "Taskbar.TaskListLabeledButtonPanel@CommonStates > Windows.UI.Xaml.Controls.TextBlock#LabelControl",
-  "controlStyles[12].styles[0]": "FontFamily=Cascadia Mono",
-  "controlStyles[12].styles[1]": "FontSize=12.333",
-  "controlStyles[12].styles[2]": "CharacterSpacing=5",
-  "controlStyles[12].styles[3]": "MinWidth=2000",
-  "controlStyles[12].styles[4]": "Margin=-35,0,0,0",
-  "controlStyles[12].styles[5]": "HorizontalAlignment=Stretch",
-  "controlStyles[12].styles[6]": "Foreground=#777777",
-  "controlStyles[12].styles[7]": "Foreground@ActiveNormal=White",
-  "controlStyles[12].styles[8]": "Foreground@ActivePointerOver=$barLabelPointerOver",
-  "controlStyles[12].styles[9]": "Foreground@MultiWindowPointerOver=$barLabelPointerOver",
-  "controlStyles[12].styles[10]": "Foreground@InactivePointerOver=$barLabelPointerOver",
-  "controlStyles[12].styles[11]": "Foreground@ActivePressed=$barLabelPointerOver",
-  "controlStyles[12].styles[12]": "Foreground@InactivePressed=$barLabelPointerOver",
-  "controlStyles[12].styles[13]": "Foreground@MultiWindowPressed=$barLabelPointerOver",
-  "controlStyles[13].target": "Taskbar.TaskListLabeledButtonPanel > Windows.UI.Xaml.Controls.Image#Icon",
-  "controlStyles[13].styles[0]": "Visibility=Collapsed",
-  "controlStyles[13].styles[1]": "Width=0",
-  "controlStyles[14].target": "Windows.UI.Xaml.Controls.Border#MultiWindowElement",
-  "controlStyles[14].styles[0]": "Visibility=Collapsed",
-  "controlStyles[15].target": "Taskbar.TaskListLabeledButtonPanel@CommonStates > Windows.UI.Xaml.Shapes.Rectangle#DefaultIcon",
-  "controlStyles[15].styles[0]": "Visibility=Collapsed",
-  "controlStyles[16].target": "SystemTray.SystemTrayFrame",
-  "controlStyles[16].styles[0]": "Height=15",
-  "controlStyles[16].styles[1]": "Margin=0,0,0,0",
-  "controlStyles[17].target": "Windows.UI.Xaml.Controls.Grid#SystemTrayFrameGrid",
-  "controlStyles[17].styles[0]": "ColumnSpacing=-6",
-  "controlStyles[18].target": "SystemTray.NotificationAreaIcons#NotificationAreaIcons",
-  "controlStyles[18].styles[0]": "Grid.Column=0",
-  "controlStyles[19].target": "SystemTray.TextIconContent > Windows.UI.Xaml.Controls.Grid > SystemTray.AdaptiveTextBlock > Windows.UI.Xaml.Controls.TextBlock",
-  "controlStyles[19].styles[0]": "FontSize=16",
-  "controlStyles[20].target": "SystemTray.OmniButton#ControlCenterButton",
-  "controlStyles[20].styles[0]": "Grid.Column=1",
-  "controlStyles[21].target": "SystemTray.Stack#MainStack",
-  "controlStyles[21].styles[0]": "Grid.Column=2",
-  "controlStyles[21].styles[1]": "Margin=4,-2,-1,-2",
-  "controlStyles[21].styles[2]": "RenderTransform:=<TransformGroup> <TranslateTransform X=\"0\"/> </TransformGroup>",
-  "controlStyles[22].target": "Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=]",
-  "controlStyles[22].styles[0]": "Text=",
-  "controlStyles[22].styles[1]": "FontSize=11",
-  "controlStyles[22].styles[2]": "Foreground=#FFFFFF",
-  "controlStyles[23].target": "SystemTray.Stack#NonActivatableStack",
-  "controlStyles[23].styles[0]": "Grid.Column=3",
-  "controlStyles[23].styles[1]": "Width=36",
-  "controlStyles[23].styles[2]": "Margin=0,0,-1,0",
-  "controlStyles[24].target": "SystemTray.Stack#NonActivatableStack > Windows.UI.Xaml.Controls.Grid > SystemTray.StackListView > Windows.UI.Xaml.Controls.ItemsPresenter > Windows.UI.Xaml.Controls.StackPanel",
-  "controlStyles[24].styles[0]": "Width=39",
-  "controlStyles[25].target": "Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=ENG]",
-  "controlStyles[25].styles[0]": "FontFamily=Cascadia Mono",
-  "controlStyles[25].styles[1]": "FontSize=12",
-  "controlStyles[26].target": "SystemTray.Stack#NotifyIconStack",
-  "controlStyles[26].styles[0]": "Grid.Column=4",
-  "controlStyles[26].styles[1]": "Margin=0,0,3,0",
-  "controlStyles[27].target": "SystemTray.Stack#NotifyIconStack > Windows.UI.Xaml.Controls.Grid > SystemTray.StackListView > Windows.UI.Xaml.Controls.ItemsPresenter",
-  "controlStyles[27].styles[0]": "Margin=0,0,0,0",
-  "controlStyles[28].target": "SystemTray.ChevronIconView > Windows.UI.Xaml.Controls.Grid",
-  "controlStyles[28].styles[0]": "Margin=0,0,0,0",
-  "controlStyles[29].target": "SystemTray.ChevronIconView > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[29].styles[0]": "Background=Transparent",
-  "controlStyles[29].styles[1]": "Margin=0,0,0,0",
-  "controlStyles[29].styles[2]": "CornerRadius=0",
-  "controlStyles[30].target": "SystemTray.NotifyIconView > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[30].styles[0]": "Background=Transparent",
-  "controlStyles[30].styles[1]": "Margin=0,0,0,0",
-  "controlStyles[30].styles[2]": "CornerRadius=0",
-  "controlStyles[31].target": "Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=]",
-  "controlStyles[31].styles[0]": "FontSize=12",
-  "controlStyles[31].styles[1]": "RenderTransform:=<TransformGroup> <ScaleTransform ScaleX=\"1\" ScaleY=\"1.2\" /> </TransformGroup>",
-  "controlStyles[31].styles[2]": "Margin=0,0,0,2",
-  "controlStyles[32].target": "SystemTray.Stack#NotificationCenterButton",
-  "controlStyles[32].styles[0]": "Grid.Column=5",
-  "controlStyles[33].target": "SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.StackPanel",
-  "controlStyles[33].styles[0]": "Orientation=1",
-  "controlStyles[33].styles[1]": "Spacing=5",
-  "controlStyles[34].target": "SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.StackPanel > Windows.UI.Xaml.Controls.TextBlock",
-  "controlStyles[34].styles[0]": "FontFamily=Cascadia Mono",
-  "controlStyles[34].styles[1]": "FontSize=12",
-  "controlStyles[34].styles[2]": "TextAlignment=Center",
-  "controlStyles[34].styles[3]": "Foreground=White",
-  "controlStyles[34].styles[4]": "Margin=0,0,0,0",
-  "controlStyles[35].target": "SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid#ContainerGrid",
-  "controlStyles[35].styles[0]": "Padding=0",
-  "controlStyles[35].styles[1]": "Margin=0,0,0,0",
-  "controlStyles[36].target": "SystemTray.OmniButton > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[36].styles[0]": "Background=Transparent",
-  "controlStyles[36].styles[1]": "Margin=0,0,0,0",
-  "controlStyles[36].styles[2]": "CornerRadius=0",
-  "controlStyles[37].target": "Windows.UI.Xaml.Controls.Grid#ContainerGrid > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[37].styles[0]": "Visibility=Collapsed",
-  "controlStyles[38].target": "SystemTray.OmniButton > Windows.UI.Xaml.Controls.Grid@CommonStates > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[38].styles[0]": "Visibility=Collapsed",
-  "controlStyles[39].target": "SystemTray.Stack#ShowDesktopStack",
-  "controlStyles[39].styles[0]": "Width=15",
-  "controlStyles[39].styles[1]": "Height=Auto",
-  "controlStyles[39].styles[2]": "Margin=0,0,0,0",
-  "controlStyles[40].target": "SystemTray.IconView[AutomationProperties.Name=Show Desktop]",
-  "controlStyles[40].styles[0]": "Width=15",
-  "controlStyles[41].target": "Windows.UI.Xaml.Shapes.Rectangle#ShowDesktopPipe",
-  "controlStyles[41].styles[0]": "Width=15",
-  "controlStyles[41].styles[1]": "Height=15",
-  "controlStyles[41].styles[2]": "Margin=8,2,6,3",
-  "controlStyles[41].styles[3]": "Fill=#CCCCCC",
-  "controlStyles[42].target": "SystemTray.IconView#SystemTrayIcon > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.Border#BackgroundBorder",
-  "controlStyles[42].styles[0]": "Background=Transparent",
-  "controlStyles[42].styles[1]": "Margin=1,0,1,0",
-  "controlStyles[42].styles[2]": "CornerRadius=0",
-  "controlStyles[43].target": "SystemTray.StackListView[AutomationProperties.AutomationId=Main]",
-  "controlStyles[43].styles[0]": "Margin=-8,0,0,0",
-  "controlStyles[44].target": "Windows.UI.Xaml.Shapes.Rectangle#RunningIndicator",
-  "controlStyles[44].styles[0]": "Opacity=0",
-  "controlStyles[44].styles[1]": "Visibility=Collapsed",
-  "themeResourceVariables[0]": "",
-  "clickThroughTaskbar": "0",
-  "xamlDiagnosticsHandling": "alert"
-}
+theme: ''
+styleConstants:
+  - taskbandInactiveNormal=#222222
+  - barLabelPointerOver=#8A8A8A
+  - taskbandPointerOver=#373737
+  - taskbandBorderPointerOver=#434343
+  - taskbandActive=<SolidColorBrush Color="#295576"/>
+  - indicatorActive=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.7" />
+  - indicatorInactive=<SolidColorBrush Color="Gray" Opacity="0.7" />
+  - indicatorPointerOver=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.8" />
+  - taskbandAttention=<SolidColorBrush Color="#ce640c" Opacity="0.5" />
+  - indicatorAttention=<SolidColorBrush Color="#ce640c" Opacity="0.9" />
+  - selectionBorder=<LinearGradientBrush StartPoint='0,0' EndPoint='1,0'><GradientStop Color='Transparent' Offset='0.0' /><GradientStop Color='Transparent' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.8' /><GradientStop Color='Transparent' Offset='0.8' /><GradientStop Color='Transparent' Offset='1.0' /></LinearGradientBrush>
+  - selectionBorderExtended=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" />
+  - desktopButton=https://raw.githubusercontent.com/ramensoftware/windows-11-taskbar-styling-guide/refs/heads/main/Themes/Plasma/ThemeResources/desktop.png
+  - WindhawkBlur=#222222
+  - Acrylic=<AcrylicBrush TintColor="#2a2e32" TintOpacity="0.8" FallbackColor="#2a2e32" />
+controlStyles:
+  - target: Border#BackgroundBorder
+    styles:
+      - Visibility=Collapsed
+  - target: Taskbar.TaskListButton
+    styles:
+      - Margin=0,0,0,0
+  - target: Taskbar.TaskListButton > Grid
+    styles:
+      - Padding=0
+      - Width=2000
+  - target: Taskbar.TaskListButton > Grid@CommonStates > Border#BackgroundElement
+    styles:
+      - CornerRadius=0
+      - BorderThickness=1,2,1,1
+      - BorderBrush=#2E2E2E
+      - Background@ActiveNormal:=$taskbandActive
+      - BorderBrush@ActiveNormal=#476E8B
+      - BorderThickness@ActiveNormal=1,2,1,1
+      - Background@InactiveNormal:=$taskbandInactiveNormal
+      - Background@ActivePointerOver:=$taskbandPointerOver
+      - BorderBrush@ActivePointerOver=$taskbandBorderPointerOver
+      - Background@MultiWindowNormal:=$taskbandInactiveNormal
+      - Background@MultiWindowPointerOver:=$taskbandPointerOver
+      - Background@InactivePointerOver:=$taskbandPointerOver
+      - BorderBrush@InactivePointerOver=$taskbandBorderPointerOver
+      - Background@ActivePressed:=$taskbandPointerOver
+      - Background@InactivePressed:=$taskbandPointerOver
+      - Background@MultiWindowPressed:=$taskbandPointerOver
+      - Background@MultiWindowActive:=$taskbandActive
+      - Background@RequestingAttention:=$taskbandAttention
+      - Background@RequestingAttentionPointerOver:=$taskbandPointerOver
+      - Background@RequestingAttentionPressed:=$taskbandPointerOver
+      - Background@RequestingAttentionMulti:=$taskbandAttention
+      - Background@RequestingAttentionMultiPointerOver:=$taskbandPointerOver
+      - Background@RequestingAttentionMultiPressed:=$taskbandPointerOver
+  - target: Windows.UI.Xaml.Shapes.Rectangle#RunningIndicator
+    styles:
+      - Visibility=Collapsed
+  - target: Taskbar.TaskListButton > Grid@CommonStates > TextBlock#LabelControl
+    styles:
+      - FontFamily=Cascadia Mono
+      - FontSize=12.333
+      - CharacterSpacing=2
+      - MaxWidth=2000
+      - Margin=-22,0,0,0
+      - HorizontalAlignment=Left
+      - Foreground=#777777
+      - Foreground@ActiveNormal=White
+      - Foreground@ActivePointerOver=$barLabelPointerOver
+      - Foreground@MultiWindowPointerOver=$barLabelPointerOver
+      - Foreground@InactivePointerOver=$barLabelPointerOver
+      - Foreground@ActivePressed=$barLabelPointerOver
+      - Foreground@InactivePressed=$barLabelPointerOver
+      - Foreground@MultiWindowPressed=$barLabelPointerOver
+  - target: Taskbar.TaskListButton > Grid > Image#Icon
+    styles:
+      - Visibility=Collapsed
+  - target: Windows.UI.Xaml.Controls.Border#MultiWindowElement
+    styles:
+      - Visibility=Collapsed
+  - target: Taskbar.TaskListButton > Grid > Rectangle#DefaultIcon
+    styles:
+      - Visibility=Collapsed
+  - target: SystemTray.SystemTrayFrame
+    styles:
+      - Margin=0,0,0,0
+  - target: SystemTray.TextIconContent > Windows.UI.Xaml.Controls.Grid > SystemTray.AdaptiveTextBlock > Windows.UI.Xaml.Controls.TextBlock
+    styles:
+      - FontSize=16
+  - target: SystemTray.Stack#MainStack
+    styles:
+      - Margin=4,-2,-1,-2
+      - RenderTransform:=<TransformGroup> <TranslateTransform X="0"/> </TransformGroup>
+  - target: TextBlock#InnerTextBlock[Text=]
+    styles:
+      - Text=
+      - FontSize=11
+      - Foreground=#FFFFFF
+  - target: TextBlock#InnerTextBlock[Text=ENG]
+    styles:
+      - FontFamily=Cascadia Mono
+      - FontSize=12
+      - RenderTransform:=<TransformGroup> <TranslateTransform X="0" Y="1" /> </TransformGroup>
+  - target: SystemTray.Stack#NotifyIconStack
+    styles:
+      - Grid.Column=5
+      - Margin=0,0,3,0
+  - target: Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=]
+    styles:
+      - FontSize=12
+      - RenderTransform:=<TransformGroup> <ScaleTransform ScaleX="1" ScaleY="1.2" /> </TransformGroup>
+      - Margin=0,0,0,2
+  - target: SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.StackPanel
+    styles:
+      - Orientation=1
+      - Spacing=5
+  - target: SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.StackPanel > Windows.UI.Xaml.Controls.TextBlock
+    styles:
+      - FontFamily=Cascadia Mono
+      - FontSize=12
+      - Foreground=White
+  - target: SystemTray.StackListView[AutomationProperties.AutomationId=Main]
+    styles:
+      - Margin=-8,0,0,0
+themeResourceVariables:
+  - ''
+clickThroughTaskbar: 0
+xamlDiagnosticsHandling: alert
