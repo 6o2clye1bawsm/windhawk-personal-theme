@@ -1,4 +1,3 @@
-quickbar 2.1
 theme: ''
 styleConstants:
   - '------ TASKBAR ------'
@@ -17,12 +16,17 @@ styleConstants:
   - Margin_tlb = 0,0,0,0
   - '-- BUTTON GRID # an arbitrarily high width is used to fill the item repeater'
   - Width_tlbg = 5000
+  - Padding_tlbg = 0,0,0,0
+  - '-- BUTTON BORDER'
+  - BorderThickness_tlb = 2,2,2,2
   - '-- BUTTON ICON'
-  - Visibility_tlbi = Visible
-  - 'Note to self: use branchless coding if possible to calculate boolean logic and make icon enable/disable easier'
+  - Visibility_tlbi = Collapsed
   - '-- BUTTON LABEL'
   - Margin_tlbl = -20,0,0,0
   - MaxWidth_tlbl = $Width_tlbg
+  - FontFamily_tlbl = Cascadia Mono
+  - FontSize_tlbl = 12
+  - HorizontalAlignment_tlbl = Left
   - '-- BUTTON RUNNING INDICATOR'
   - Visibility_tlbri = Collapsed
   - '------ WIDGET ------'
@@ -35,6 +39,21 @@ styleConstants:
   - Text_himt = 
   - FontFamily_himt = Segoe Fluent Icons
   - FontSize_him = 16
+  - '====================================================================='
+  - taskbandInactiveNormal=#222222
+  - barLabelPointerOver=#8A8A8A
+  - taskbandPointerOver=#373737
+  - taskbandBorderPointerOver=#434343
+  - taskbandActive=<SolidColorBrush Color="#295576"/>
+  - indicatorActive=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.7" />
+  - indicatorInactive=<SolidColorBrush Color="Gray" Opacity="0.7" />
+  - indicatorPointerOver=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" Opacity="0.8" />
+  - taskbandAttention=<SolidColorBrush Color="#ce640c" Opacity="0.5" />
+  - indicatorAttention=<SolidColorBrush Color="#ce640c" Opacity="0.9" />
+  - selectionBorder=<LinearGradientBrush StartPoint='0,0' EndPoint='1,0'><GradientStop Color='Transparent' Offset='0.0' /><GradientStop Color='Transparent' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.2' /><GradientStop Color='{ThemeResource SystemAccentColorLight2}' Offset='0.8' /><GradientStop Color='Transparent' Offset='0.8' /><GradientStop Color='Transparent' Offset='1.0' /></LinearGradientBrush>
+  - selectionBorderExtended=<SolidColorBrush Color="{ThemeResource SystemAccentColorLight2}" />
+  - WindhawkBlur=#222222
+  - Acrylic=<AcrylicBrush TintColor="#2a2e32" TintOpacity="0.8" FallbackColor="#2a2e32" />
 controlStyles:
   - target: Taskbar.TaskbarFrame > Grid#RootGrid > Taskbar.TaskbarBackground > Grid > Rectangle#BackgroundFill
     styles:
@@ -56,20 +75,58 @@ controlStyles:
       - Padding=$Padding_tlb
   - target: Grid#IconPanel
     styles:
-      - Padding=2,4,2,4
+      - Padding=$Padding_tlbg
       - Width=$Width_tlbg
+  - target: Taskbar.TaskListButton > Grid@CommonStates > Border#BackgroundElement
+    styles:
+      - CornerRadius=0
+      - BorderBrush=#363636
+      - Background@ActiveNormal:=$taskbandActive
+      - BorderBrush@ActiveNormal=#476E8B
+      - Background@InactiveNormal:=$taskbandInactiveNormal
+      - Background@ActivePointerOver:=$taskbandPointerOver
+      - BorderBrush@ActivePointerOver=$taskbandBorderPointerOver
+      - Background@MultiWindowNormal:=$taskbandInactiveNormal
+      - Background@MultiWindowPointerOver:=$taskbandPointerOver
+      - Background@InactivePointerOver:=$taskbandPointerOver
+      - BorderBrush@InactivePointerOver=$taskbandBorderPointerOver
+      - Background@ActivePressed:=$taskbandPointerOver
+      - Background@InactivePressed:=$taskbandPointerOver
+      - Background@MultiWindowPressed:=$taskbandPointerOver
+      - Background@MultiWindowActive:=$taskbandActive
+      - Background@RequestingAttention:=$taskbandAttention
+      - Background@RequestingAttentionPointerOver:=$taskbandPointerOver
+      - Background@RequestingAttentionPressed:=$taskbandPointerOver
+      - Background@RequestingAttentionMulti:=$taskbandAttention
+      - Background@RequestingAttentionMultiPointerOver:=$taskbandPointerOver
+      - Background@RequestingAttentionMultiPressed:=$taskbandPointerOver
+  - target: Taskbar.TaskListButton > Grid@CommonStates > Border
+    styles:
+      - BorderThickness = $BorderThickness_tlb
   - target: Grid#IconPanel > Image#Icon
     styles:
       - Visibility=$Visibility_tlbi
-      - Opacity=0
-  - target: TextBlock#LabelControl
+  - target: Grid#IconPanel@CommonStates > TextBlock#LabelControl
     styles:
-      - HorizontalAlignment=Left
+      - HorizontalAlignment=$HorizontalAlignment_tlbl
       - Margin=$Margin_tlbl
       - MaxWidth=$MaxWidth_tlbl
+      - FontFamily=$FontFamily_tlbl
+      - FontSize=$FontSize_tlbl
+      - Foreground=#777
+      - Foreground@ActiveNormal=#FFF
+      - Foreground@ActivePointerOver=$barLabelPointerOver
+      - Foreground@MultiWindowPointerOver=$barLabelPointerOver
+      - Foreground@InactivePointerOver=$barLabelPointerOver
+      - Foreground@ActivePressed=$barLabelPointerOver
+      - Foreground@InactivePressed=$barLabelPointerOver
+      - Foreground@MultiWindowPressed=$barLabelPointerOver
   - target: Grid#IconPanel > Rectangle#RunningIndicator
     styles:
       - Visibility=$Visibility_tlbri
+
+
+
   - target: SystemTray.Stack#NotifyIconStack > Grid#Content > StackListView
     styles:
       - Height = 20
@@ -78,6 +135,9 @@ controlStyles:
       - VerticalAlignment = Center
       - VerticalContentAlignment = Center
       - Height=10
+
+
+
   - target: SystemTray.ChevronIconView
     styles:
       - Width=$Width_himv
