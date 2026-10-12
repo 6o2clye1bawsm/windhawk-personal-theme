@@ -18,7 +18,7 @@ styleConstants:
 controlStyles:
   - target: Border#BackgroundBorder
     styles:
-      - Visibility=Collapsed
+      - Visibility=Collapsed AAAAAAAAAAAAAAA
   - target: Taskbar.TaskListButton
     styles:
       - Margin=0,0,0,0
@@ -50,12 +50,12 @@ controlStyles:
       - Background@RequestingAttentionPressed:=$taskbandPointerOver
       - Background@RequestingAttentionMulti:=$taskbandAttention
       - Background@RequestingAttentionMultiPointerOver:=$taskbandPointerOver
-      - Background@RequestingAttentionMultiPressed:=$taskbandPointerOver
+      - Background@RequestingAttentionMultiPressed:=$taskbandPointerOver AAAAAAAAAAAAAA
   - target: Windows.UI.Xaml.Shapes.Rectangle#RunningIndicator
     styles:
       - Visibility=Collapsed
   - target: Taskbar.TaskListButton > Grid@CommonStates > TextBlock#LabelControl
-    styles:
+    styles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       - FontFamily=Cascadia Mono
       - FontSize=12.333
       - CharacterSpacing=2
