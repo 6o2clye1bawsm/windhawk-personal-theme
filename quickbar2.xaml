@@ -1,13 +1,18 @@
 theme: ''
 styleConstants:
+  - 'Self notes: add text highlighting for systray, add constants for post-button'
+  - 'Self notes: do taskbar background for dragging windows, rename bg color constanys'
+  - 'Self notes: do math stuff, do location(nonactivateablestack?)'
   - '------ TASKBAR ------'
   - BackgroundColor_tb = "#0b0c0a"
-  - '------ ITEM REPEATER ------ # for filling in taskbar space: right margin -58 w/o widget, -12 w/ widget'
+  - '------ ITEM REPEATER ------ # for filling in taskbar space: right margin -12'
   - Margin_ir = 0,0,-12,0
   - '------ START BUTTON ------'
   - Visibility_sb = Visible
   - Padding_sb = 8,4,2,4
   - Width_sb = 26
+  - '------ SEARCH BUTTON ------'
+  - SearchUx.SearchUI.SearchButtonRootGrid
   - '------ TASKVIEW ------'
   - Width_tv = 90
   - '------ TASKLIST BUTTON ------'
@@ -17,8 +22,10 @@ styleConstants:
   - '-- BUTTON GRID # an arbitrarily high width is used to fill the item repeater'
   - Width_tlbg = 5000
   - Padding_tlbg = 0,0,0,0
+  - '-- BUTTON BACKGROUND'
+  - CornerRadius_tlbbg=0
   - '-- BUTTON BORDER'
-  - BorderThickness_tlb = 2,2,2,2
+  - BorderThickness_tlbb = 2,2,2,2
   - '-- BUTTON ICON'
   - Visibility_tlbi = Collapsed
   - '-- BUTTON LABEL'
@@ -40,6 +47,8 @@ styleConstants:
   - FontFamily_himt = Segoe Fluent Icons
   - FontSize_him = 16
   - '====================================================================='
+  - buttonBorder=#363636
+  - buttonBorderActive=#476E8B
   - buttonInactiveNormal=#222222
   - barLabelPointerOver=#8A8A8A
   - buttonPointerOver=#373737
@@ -66,9 +75,60 @@ controlStyles:
       - Visibility=$Visibility_sb
       - Padding=$Padding_sb
       - Width=$Width_sb
-  - target: Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=TaskViewButton] > Taskbar.TaskListButtonPanel#ExperienceToggleButtonRootPanel
+  - target: SearchUx.SearchUI.SearchButtonRootGrid@CommonStates
+    styles:
+      - Margin=0,0,0,1
+      - Padding=0,0,0,0
+      - BorderThickness=2,2,2,2
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - Background@ActiveNormal:=$buttonActive
+      - BorderBrush@ActiveNormal=$buttonBorderActive
+      - Background@InactiveNormal:=$buttonInactiveNormal
+      - Background@ActivePointerOver:=$buttonPointerOver
+      - BorderBrush@ActivePointerOver=$buttonBorderPointerOver
+      - Background@MultiWindowNormal:=$buttonInactiveNormal
+      - Background@MultiWindowPointerOver:=$buttonPointerOver
+      - Background@InactivePointerOver:=$buttonPointerOver
+      - BorderBrush@InactivePointerOver=$buttonBorderPointerOver
+      - Background@ActivePressed:=$buttonPointerOver
+      - Background@InactivePressed:=$buttonPointerOver
+      - Background@MultiWindowPressed:=$buttonPointerOver
+      - Background@MultiWindowActive:=$buttonActive
+      - Background@RequestingAttention:=$buttonAttention
+      - Background@RequestingAttentionPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionPressed:=$buttonPointerOver
+      - Background@RequestingAttentionMulti:=$buttonAttention
+      - Background@RequestingAttentionMultiPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionMultiPressed:=$buttonPointerOver
+  - target: Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=TaskViewButton] > Taskbar.TaskListButtonPanel@CommonStates
     styles:
       - Width=$Width_tv
+      - BorderThickness=2,2,1,2
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - Background@ActiveNormal:=$buttonActive
+      - BorderBrush@ActiveNormal=$buttonBorderActive
+      - Background@InactiveNormal:=$buttonInactiveNormal
+      - Background@ActivePointerOver:=$buttonPointerOver
+      - BorderBrush@ActivePointerOver=$buttonBorderPointerOver
+      - Background@MultiWindowNormal:=$buttonInactiveNormal
+      - Background@MultiWindowPointerOver:=$buttonPointerOver
+      - Background@InactivePointerOver:=$buttonPointerOver
+      - BorderBrush@InactivePointerOver=$buttonBorderPointerOver
+      - Background@ActivePressed:=$buttonPointerOver
+      - Background@InactivePressed:=$buttonPointerOver
+      - Background@MultiWindowPressed:=$buttonPointerOver
+      - Background@MultiWindowActive:=$buttonActive
+      - Background@RequestingAttention:=$buttonAttention
+      - Background@RequestingAttentionPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionPressed:=$buttonPointerOver
+      - Background@RequestingAttentionMulti:=$buttonAttention
+      - Background@RequestingAttentionMultiPointerOver:=$buttonPointerOver
+      - Background@RequestingAttentionMultiPressed:=$buttonPointerOver
+  - target: Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=TaskViewButton] > Taskbar.TaskListButtonPanel > Grid > Border
+    styles:
+      - Visibility=Collapsed
   - target: Taskbar.TaskListButton
     styles:
       - Margin=$Margin_tlb
@@ -79,10 +139,10 @@ controlStyles:
       - Width=$Width_tlbg
   - target: Taskbar.TaskListButton > Grid@CommonStates > Border#BackgroundElement
     styles:
-      - CornerRadius=0
-      - BorderBrush=#363636
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
       - Background@ActiveNormal:=$buttonActive
-      - BorderBrush@ActiveNormal=#476E8B
+      - BorderBrush@ActiveNormal=$buttonBorderActive
       - Background@InactiveNormal:=$buttonInactiveNormal
       - Background@ActivePointerOver:=$buttonPointerOver
       - BorderBrush@ActivePointerOver=$buttonBorderPointerOver
@@ -102,7 +162,7 @@ controlStyles:
       - Background@RequestingAttentionMultiPressed:=$buttonPointerOver
   - target: Taskbar.TaskListButton > Grid@CommonStates > Border
     styles:
-      - BorderThickness = $BorderThickness_tlb
+      - BorderThickness = $BorderThickness_tlbb
   - target: Grid#IconPanel > Image#Icon
     styles:
       - Visibility=$Visibility_tlbi
@@ -124,57 +184,106 @@ controlStyles:
   - target: Grid#IconPanel > Rectangle#RunningIndicator
     styles:
       - Visibility=$Visibility_tlbri
-
-
-
+  - target: Taskbar.AugmentedEntryPointButton#AugmentedEntryPointButton > Taskbar.TaskListButtonPanel@CommonStates
+    styles:
+      - CornerRadius = 0
+      - Background = $buttonInactiveNormal
+      - BorderThickness = 2,2,0,2
+      - BorderBrush = $buttonBorder
+      - Background@InactiveNormal:=$buttonInactiveNormal
+      - Background@InactivePointerOver:=$buttonPointerOver
+      - BorderBrush@InactivePointerOver=$buttonBorderPointerOver
+      - Background@InactivePressed:=$buttonPointerOver
+      - Background@ActiveNormal:=$buttonActive
+      - BorderBrush@ActiveNormal=$buttonBorderActive
+      - Background@ActivePointerOver:=$buttonPointerOver
+      - BorderBrush@ActivePointerOver=$buttonBorderPointerOver
+      - Background@ActivePressed:=$buttonPointerOver
+  - target: Taskbar.AugmentedEntryPointButton#AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Border
+    styles:
+      - Visibility = Collapsed
   - target: SystemTray.Stack#NotifyIconStack > Grid#Content > StackListView
     styles:
       - Height = 20
-  - target: SystemTray.Stack#NotifyIconStack > Grid#Content > StackListView#IconStack > ItemPresenter > StackPanel > ContentPresenter, SystemTray.Stack#NotifyIconStack > Grid#Content > StackListView#IconStack > ItemPresenter > StackPanel > ContentPresenter > ChevronIconView
-    styles:
-      - VerticalAlignment = Center
-      - VerticalContentAlignment = Center
-      - Height=10
-
-
-
   - target: SystemTray.ChevronIconView
     styles:
       - Width=$Width_himv
-      - Height=$Height_himv
+  - target: SystemTray.Stack#NotifyIconStack > Grid#Content > SystemTray.StackListView#IconStack > ItemsPresenter > StackPanel > ContentPresenter
+    styles:
+      - Background=$buttonInactiveNormal
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - BorderThickness=2,2,0,2
+  - target: SystemTray.ChevronIconView > Windows.UI.Xaml.Controls.Grid > Border
+    styles:
+      - Visibility = Collapsed
   - target: SystemTray.ChevronIconView > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.ContentPresenter > Windows.UI.Xaml.Controls.Grid > SystemTray.TextIconContent > Windows.UI.Xaml.Controls.Grid > SystemTray.AdaptiveTextBlock#Base > TextBlock
     styles:
       - Text=$Text_himt
       - FontFamily=$FontFamily_himt
       - FontSize=$FontSize_himt
-  - target: SystemTray.OmniButton#ControlCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView#SystemTrayIcon > Grid#ContainerGrid
+  - target: SystemTray.SystemTrayFrame > StackPanel#SystemTrayFrameGrid > SystemTray.Stack#NonActivatableStack > Grid#Content, SystemTray.SystemTrayFrame > Grid#SystemTrayFrameGrid > SystemTray.Stack#NonActivatableStack > Grid#Content
     styles:
-      - Padding=4,0,4,0
-  - target: SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView#SystemTrayIcon > Grid#ContainerGrid
+      - Background=$buttonInactiveNormal
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - BorderThickness=0,2,0,2
+  - target: SystemTray.IconView#SystemTrayIcon > Grid > Border
     styles:
-      - Padding=4,0,4,0
-  - target: SystemTray.AdaptiveTextBlock#LanguageInnerTextBlock > Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock
+      - Visibility = Collapsed
+  - target: SystemTray.AdaptiveTextBlock#LanguageInnerTextBlock > TextBlock#InnerTextBlock
     styles:
-      - TextTrimming=1
-      - Height=20
-      - FontSize=14
+      - FontSize=10
+  - target: SystemTray.OmniButton#ControlCenterButton > Grid
+    styles:
+      - Background=$buttonInactiveNormal
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - BorderThickness=0,2,0,2
+  - target: SystemTray.OmniButton#ControlCenterButton > Grid > Border
+    styles:
+      - Visibility = Collapsed
+  - target: SystemTray.OmniButton#ControlCenterButton > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.ContentPresenter#ContentPresenter > Windows.UI.Xaml.Controls.ItemsPresenter > Windows.UI.Xaml.Controls.StackPanel > Windows.UI.Xaml.Controls.ContentPresenter
+    styles:
+      - //
+  - target: SystemTray.TextIconContent > Grid, SystemTray.BatteryIconContent > Grid
+    styles:
+      - Padding=0,0,0,0
+  - target: SystemTray.TextIconContent > Grid > SystemTray.AdaptiveTextBlock > TextBlock, Grid#BatteryGlyphGrid > TextBlock
+    styles:
+      - FontSize=13
   - target: TextBlock#BatteryTextBlock
     styles:
       - FontSize=14
+  - target: SystemTray.OmniButton#NotificationCenterButton > Grid
+    styles:
+      - Background=$buttonInactiveNormal
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - BorderThickness=0,2,0,2
+  - target: SystemTray.OmniButton#NotificationCenterButton > Grid > Border
+    styles:
+      - Visibility = Collapsed
+  - target: SystemTray.DateTimeIconContent > Windows.UI.Xaml.Controls.Grid > Windows.UI.Xaml.Controls.StackPanel
+    styles:
+      - Orientation=Horizontal
+      - Spacing = 6
   - target: TextBlock#TimeInnerTextBlock
     styles:
-      - FontSize=14
+      - FontSize=12
+      - VerticalAlignment=Center
   - target: TextBlock#DateInnerTextBlock
     styles:
-      - Visibility=Collapsed
-  - target: StackPanel#SystemTrayFrameGrid, Grid#SystemTrayFrameGrid
+      - FontSize=12
+      - VerticalAlignment=Center
+  - target: StackPanel > ContentPresenter > SystemTray.IconView#SystemTrayIcon > Grid#ContainerGrid[Width=12]
     styles:
-      - Margin=0,-4,0,-4
-      - Opacity=0.75
-  - target: SystemTray.IconView#SystemTrayIcon > Grid#ContainerGrid@ > Rectangle#ShowDesktopPipe
-    styles:
-      - Fill=Transparent
+      - Background=$buttonInactiveNormal
+      - CornerRadius=$CornerRadius_tlbbg
+      - BorderBrush=$buttonBorder
+      - BorderThickness=0,2,2,2
 themeResourceVariables:
   - 
 clickThroughTaskbar: 0
 xamlDiagnosticsHandling: ''
+
